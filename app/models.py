@@ -28,7 +28,7 @@ class Book(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
     author = Column(String)
-    published_year = Column(Integer)
+    genre = Column(String, nullable=True)
     borrower_id = Column(Integer, ForeignKey('users.id'), nullable=True)
     
     borrower = relationship('User', backref='borrower_books')

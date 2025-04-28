@@ -5,3 +5,10 @@ class RegisterRequest(BaseModel):
     phone: str
     password: str
     role: str
+    
+class UserList(BaseModel):
+    id: int
+    name: str
+    phone: str
+    role: str
+    
