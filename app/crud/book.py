@@ -25,12 +25,12 @@ def get_borrowhistory(
     db: Session, user_id: Optional[int] = None,
     book_id: Optional[int] = None,
     search: Optional[str] = None):
-    query = db.query(BorrowHistory).all()
+    query = db.query(BorrowHistory)
     if user_id:
-        query = query.filter(BookHistory.borrower_id == user_id)
+        query = query.filter(BorrowHistory.borrower_id == user_id)
         
     if book_id:
-        query = query.filter(BookHistory.book_id == book_id)
+        query = query.filter(BorrowHistory.book_id == book_id)
     if search:
         query = query.join(BorrowHistory.book).join(BorrowHistory.user).filter(
             or_(
