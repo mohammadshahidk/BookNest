@@ -91,8 +91,11 @@ def return_book(
 @router.get('/borrow/history', response_model=List[book_schemas.BorrowHistory])
 def borrow_history(
     current_user: dict = Depends(get_current_user),
+    user_id: Optional[int] = None,
+    book_id: Optional[int] = None,
+    search: Optional[str] = None,
     db: Session = Depends(get_db)):
-    history = book_crud.get_borrowhistory(db)
+    history = book_crud.get_borrowhistory(db, user_id, book_id, search)
     return history
 
 
