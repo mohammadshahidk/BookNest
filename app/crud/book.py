@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from app.models import Book, BorrowHistory
+from app.models import Book, BorrowHistory, User
 from typing import Optional
 from sqlalchemy import or_
 
